@@ -1,0 +1,46 @@
+{
+	"name": "Parquet_azure_3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Challenge1_Storage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "callenge1_sinks"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "dboDates.Parquet",
+				"folderPath": "srcazuresql",
+				"fileSystem": "workspace"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Country",
+				"type": "UTF8"
+			},
+			{
+				"name": "CountryCode",
+				"type": "UTF8"
+			},
+			{
+				"name": "Latitude",
+				"type": "DECIMAL",
+				"precision": 10,
+				"scale": 5
+			},
+			{
+				"name": "Longitude",
+				"type": "DECIMAL",
+				"precision": 10,
+				"scale": 5
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

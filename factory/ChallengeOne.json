@@ -1,0 +1,9 @@
+{
+	"name": "ChallengeOne",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "58b51f20-7f47-4f49-893b-7af7806bc45a",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}

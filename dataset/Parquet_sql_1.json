@@ -1,0 +1,25 @@
+{
+	"name": "Parquet_sql_1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Challenge1_Storage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "callenge1_sinks"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "dboCountry.parquet",
+				"folderPath": "srcsqlserver",
+				"fileSystem": "workspace"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

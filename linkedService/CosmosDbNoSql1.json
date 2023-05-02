@@ -1,0 +1,16 @@
+{
+	"name": "CosmosDbNoSql1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "CosmosDb",
+		"typeProperties": {
+			"connectionString": "AccountEndpoint=https://covid19-cosmosdb-eixcs7npt3cis.documents.azure.com:443/;Database=covid19;",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjNWUyMmNkNi00YTk1LTQ0MjgtYmMyYi0yMDFlNzNlYTQxZWYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "ChallengeSHIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

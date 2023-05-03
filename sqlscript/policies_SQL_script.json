@@ -1,0 +1,17 @@
+{
+	"name": "policies_SQL_script",
+	"properties": {
+		"content": {
+			"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'operationaldatastore_covid19eixcs7npt3cis_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [operationaldatastore_covid19eixcs7npt3cis_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://operationaldatastore@covid19eixcs7npt3cis.dfs.core.windows.net' \n\t)\nGO\n\nCREATE EXTERNAL TABLE dbo.Policies (\n\t[CountryName] nvarchar(4000),\n\t[CountryCode] nvarchar(4000),\n\t[RegionName] nvarchar(4000),\n\t[RegionCode] nvarchar(4000),\n\t[Jurisdiction] nvarchar(4000),\n\t[Date] nvarchar(4000),\n\t[C1SchoolClosing] int,\n\t[C1Flag] int,\n\t[C2WorkplaceClosing] int,\n\t[C2Flag] int,\n\t[C3CancelPublicEvents] int,\n\t[C3Flag] int,\n\t[C4RestrictionsOnGatherings] int,\n\t[C4Flag] int,\n\t[C5ClosePublicTransport] int,\n\t[C5Flag] int,\n\t[C6StayAtHomeRequirements] int,\n\t[C6Flag] int,\n\t[C7RestrictionsOnInternalMovement] int,\n\t[C7Flag] int,\n\t[C8InternationalTravelControls] int,\n\t[E1IncomeSupport] int,\n\t[E1Flag] int,\n\t[E2DebtContractRelief] int,\n\t[E3FiscalMeasures] int,\n\t[E4InternationalSupport] int,\n\t[H1PublicInformationCampaigns] int,\n\t[H1Flag] int,\n\t[H2TestingPolicy] int,\n\t[H3ContactTracing] int,\n\t[H4EmergencyInvestmentInHealthcare] int,\n\t[H5InvestmentInVaccines] int,\n\t[H6FacialCoverings] int,\n\t[H6Flag] int,\n\t[H7VaccinationPolicy] int,\n\t[H7Flag] int,\n\t[H8ProtectionOfElderlyPeople] int,\n\t[H8Flag] int,\n\t[M1Wildcard] int,\n\t[StringencyIndex] int,\n\t[StringencyIndexForDisplay] int,\n\t[StringencyLegacyIndex] int,\n\t[StringencyLegacyIndexForDisplay] int,\n\t[GovernmentResponseIndex] int,\n\t[GovernmentResponseIndexForDisplay] int,\n\t[ContainmentHealthIndex] int,\n\t[ContainmentHealthIndexForDisplay] int,\n\t[EconomicSupportIndex] int,\n\t[EconomicSupportIndexForDisplay] int,\n\t[id] nvarchar(4000),\n\t[rid] nvarchar(4000),\n\t[self] nvarchar(4000),\n\t[etag] nvarchar(4000),\n\t[attachments] nvarchar(4000)\n\t)\n\tWITH (\n\tLOCATION = 'Policies/**',\n\tDATA_SOURCE = [operationaldatastore_covid19eixcs7npt3cis_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.Policies\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "Covid19",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
